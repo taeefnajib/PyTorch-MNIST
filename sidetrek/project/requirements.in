@@ -1,0 +1,5 @@
+torch
+torchvision
+dataclasses_json
+numpy<1.23.5
+sidetrek==0.0.14

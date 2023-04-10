@@ -1,0 +1,11 @@
+service: "services.service:svc"  # services.service is from services/service.py and svc is the name of the variable bentoml.Service() is assigned to
+labels:
+  organization: "test-org"
+  project: "test-project"
+  domain: "development"
+include:
+- "*.py"  # A pattern for matching which files to include in the bento
+exclude:
+- "sidetrek/bentoml/"  # Required to prevent the build from including previous versions
+python:
+  requirements_txt: "./sidetrek/requirements.txt"  # Additional pip packages required by the service
