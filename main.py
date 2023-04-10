@@ -5,7 +5,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from dataclasses_json import dataclass_json
 from dataclasses import dataclass
-from memory_profiler import profile
+
 
 """
 Taken from this tutorial: https://nextjournal.com/gkoehler/pytorch-mnist
@@ -27,7 +27,7 @@ random_seed = 6
 torch.backends.cudnn.enabled = False
 torch.manual_seed(random_seed)
 
-@profile
+
 def load_data(batch_size_train, batch_size_test):
     train_loader = torch.utils.data.DataLoader(
         torchvision.datasets.MNIST(root='./data', train=True, download=True,
@@ -67,7 +67,7 @@ class Net(nn.Module):
         x = self.fc2(x)
         return F.log_softmax(x)
 
-@profile
+
 def train(epoch, network, optimizer, train_loader,train_losses, train_counter, log_interval):
     network.train()
     for batch_idx, (data, target) in enumerate(train_loader):
